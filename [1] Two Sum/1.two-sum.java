@@ -1,3 +1,4 @@
+
 /*
  * @lc app=leetcode id=1 lang=java
  *
@@ -7,14 +8,14 @@
 // @lc code=start
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = i+1; j < nums.length; j++) {
-                if (nums[j] == target - nums[i]) {
-                    return new int[] {i, j};
-                }
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        for (int i=0; i<nums.length; i++) {
+            if (hm.containsKey(nums[i])) {
+                return new int[]{i, hm.get(nums[i])};
             }
+            hm.put(target-nums[i], i);
         }
-        throw new IllegalArgumentException("No two sum solution");
+        throw new IllegalArgumentException("No solution!");
     }
 }
 // @lc code=end
