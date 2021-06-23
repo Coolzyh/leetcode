@@ -23,9 +23,13 @@ public:
                         while(lo<hi&&nums[hi]==nums[hi-1]) hi--;
                         lo++;
                         hi--;
+                    } else if(nums[lo]+nums[hi]<sum) {
+                        while(lo<hi&&nums[lo]==nums[lo+1]) lo++;
+                        lo++;
+                    } else {
+                        while(lo<hi&&nums[hi]==nums[hi-1]) hi--;
+                        hi--;
                     }
-                    else if(nums[lo]+nums[hi]<sum) lo++;
-                    else hi--;
                 }                    
             }
         }
