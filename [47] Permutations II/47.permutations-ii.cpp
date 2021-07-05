@@ -23,10 +23,11 @@ public:
         } else {
             for (int i = start; i < nums.size(); i++) {
                 int j = i-1;
-                //judge whether num[i] and num[start], ..., nums[i-1] are equal
+                //judge whether nums[i] and nums[start], ..., nums[i-1] are equal
                 while(j >= start && nums[j] != nums[i]) {
                     j--;
                 }
+                // j == start-1 means nums[i] is different from nums[start], ..., nums[i-1]
                 if (j == start-1) {
                     swap(nums[start], nums[i]);
                     DFS(nums, res, start+1);
