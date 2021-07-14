@@ -29,13 +29,14 @@ class Solution {
         List<Integer> res = new ArrayList<>();
         Stack<TreeNode> st = new Stack<>();
         while (root != null || !st.empty()) {
-            while (root != null) {
+            if (root != null) {
                 res.add(root.val);
                 st.push(root);
                 root = root.left;
+            } else {
+                root = st.pop();
+                root = root.right;
             }
-            root = st.pop();
-            root = root.right;
         }
         return res;
     }
